@@ -1,0 +1,13 @@
+/*.input-container{*/
+  /*display: flex;*/
+  /*justify-content: space-between;*/
+/*}*/
+
+body{
+  background-color: lightslategray;
+}
+
+.body-container{
+  margin-top: 10px;
+  width: 80%;
+}
