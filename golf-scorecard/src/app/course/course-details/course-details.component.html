@@ -1,0 +1,16 @@
+<mat-card *ngIf="course">
+  <mat-toolbar>{{course.course.name}}</mat-toolbar>
+
+  <div class="card-inner">
+    <img class="course-thumbnail" src="{{course.course.thumbnail}}">
+
+    <div class="course-info">
+      <mat-card-header class="course-title">{{course.course.name}}</mat-card-header>
+      <mat-card-content>{{course.course.addr_1}}, {{course.course.city}}, {{course.course.state_or_province}}</mat-card-content>
+      <mat-card-content>{{course.course.country}}, {{course.course.zip_code}}</mat-card-content>
+      <mat-card-content>{{course.course.phone}}</mat-card-content>
+      <a href="{{course.course.website}}" target="_blank">{{course.course.website}}</a>
+    </div>
+
+  </div>
+</mat-card>

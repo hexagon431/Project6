@@ -1,18 +1,18 @@
-<div class="body-container">
-  <div class="input-container">
-    <mat-form-field>
-      <input matInput placeholder="Enter Zip Code"/>
-    </mat-form-field>
+<mat-card>
+  <mat-toolbar>Course Search</mat-toolbar>
+  <mat-form-field>
+    <input matInput [(ngModel)]="zip" placeholder="Enter Zip Code"/>
+  </mat-form-field>
 
-    <mat-form-field>
-      <input matInput placeholder="Enter Search Radius (mi)"/>
-    </mat-form-field>
-  </div>
+  <mat-form-field>
+    <input matInput [(ngModel)]="radius" placeholder="Enter Search Radius (mi)"/>
+  </mat-form-field>
+</mat-card>
 
-  <ng-container>
-    <!--<mat-table>-->
-
-    <!--</mat-table>-->
-  </ng-container>
-
-</div>
+<mat-card *ngIf="courses">
+  <mat-toolbar>
+    <mat-select placeholder="Pick a Course">
+      <mat-option *ngFor="let course of courses.courses" [routerLink]="['/details', course.id]">{{course.name}}</mat-option>
+    </mat-select>
+  </mat-toolbar>
+</mat-card>

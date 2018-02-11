@@ -31,6 +31,7 @@ import {MaterialModule} from "./material-module/material.module";
     RouterModule.forRoot([
       {path: 'welcome', component: WelcomeComponent},
       {path: 'search', component: CourseListComponent},
+      {path: 'details/:id', component: CourseDetailsComponent},
       { path: '', redirectTo: 'welcome', pathMatch: 'full'},
       { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ])

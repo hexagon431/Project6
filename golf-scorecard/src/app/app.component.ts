@@ -16,10 +16,7 @@ export class AppComponent {
   }
 
   ngOnInit(){
-    this.golfCourseService.getCourses(4, 5, 5).subscribe((golfCourses: GolfCourse[]) => {
-      this.golfCourses = golfCourses;
-      console.log(this.golfCourses);
-    });
+
 
 
   }

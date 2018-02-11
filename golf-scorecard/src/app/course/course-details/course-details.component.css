@@ -1,1 +1,22 @@
+.course-thumbnail{
+  margin-top: 10px;
+  width: 500px;
+}
 
+.card-inner{
+  width: 80%;
+  display: flex;
+}
+
+.course-info{
+  flex-direction: column;
+  margin: 10px 0 0 10px;
+  justify-content: center;
+  text-align: center;
+}
+
+.course-title{
+  text-decoration: underline;
+  justify-content: center;
+  margin-bottom: 5px;
+}
