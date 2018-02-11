@@ -8,34 +8,24 @@ import {GolfCourse} from "../model/golf-course";
 export class GetCoursesService {
   private courseUrl: string = 'https://golf-courses-api.herokuapp.com';
 
-  private courseCoordinates: any = {
-    latitude: 0,
-    longitude: 0,
-    radius: 0
-  };
-
   constructor(private httpClient: HttpClient) {  }
 
   getCourses(latitude: number, longitude: number, radius: number): Observable<GolfCourse[]> {
     return this.httpClient.post<GolfCourse[]>(`${this.courseUrl}/courses`, {
-      latitude: 40.396419,
-      longitude: -111.9328359,
-      radius: 10
+      latitude: latitude,
+      longitude: longitude,
+      radius: radius
     });
 
 
   }
 
-  getCourse(id: number){
+  getCourse(id: number): Observable<GolfCourse>{
     return this.httpClient.get<GolfCourse>(`${this.courseUrl}/courses/${id}`);
   }
 
-  getCoordinatesFromZip(){
-
-  }
-
-  convertRadiusToMiles(){
-
+  convertZip(zip: number): Observable<Object> {
+    return this.httpClient.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${zip}&key=AIzaSyD_NPHIrLEEXMzX6539FOKx_1WSBkd8zVI`);
   }
 
   handleError(error){

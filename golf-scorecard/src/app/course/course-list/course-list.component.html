@@ -5,11 +5,13 @@
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="radius" placeholder="Enter Search Radius (mi)"/>
+    <input matInput [(ngModel)]="radius" placeholder="Enter Search Radius (km)"/>
   </mat-form-field>
+
+  <button mat-button color="primary" (click)="findCourses()">Search</button>
 </mat-card>
 
-<mat-card *ngIf="courses">
+<mat-card>
   <mat-toolbar>
     <mat-select placeholder="Pick a Course">
       <mat-option *ngFor="let course of courses.courses" [routerLink]="['/details', course.id]">{{course.name}}</mat-option>
