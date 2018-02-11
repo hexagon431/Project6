@@ -7,6 +7,7 @@ import {GolfCourse} from "../model/golf-course";
 @Injectable()
 export class GetCoursesService {
   private courseUrl: string = 'https://golf-courses-api.herokuapp.com';
+  private selectedCourse: number;
 
   constructor(private httpClient: HttpClient) {  }
 
@@ -26,6 +27,14 @@ export class GetCoursesService {
 
   convertZip(zip: number): Observable<Object> {
     return this.httpClient.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${zip}&key=AIzaSyD_NPHIrLEEXMzX6539FOKx_1WSBkd8zVI`);
+  }
+
+  selectCourse(id: number){
+    this.selectedCourse = id;
+  }
+
+  getSelectedCourse(): number {
+    return this.selectedCourse;
   }
 
   handleError(error){

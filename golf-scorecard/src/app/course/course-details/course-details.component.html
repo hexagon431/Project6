@@ -9,8 +9,12 @@
       <mat-card-content>{{course.course.addr_1}}, {{course.course.city}}, {{course.course.state_or_province}}</mat-card-content>
       <mat-card-content>{{course.course.country}}, {{course.course.zip_code}}</mat-card-content>
       <mat-card-content>{{course.course.phone}}</mat-card-content>
-      <a href="{{course.course.website}}" target="_blank">{{course.course.website}}</a>
+      <mat-card-content><a href="{{course.course.website}}" target="_blank">{{course.course.website}}</a></mat-card-content>
+
+      <button mat-button color="primary" (click)="selectCourse()" [routerLink]="['/scorecard']">Select Course</button>
     </div>
+
+
 
   </div>
 </mat-card>

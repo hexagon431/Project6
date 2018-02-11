@@ -1,0 +1,18 @@
+<mat-card *ngIf="isCourseSelected">
+  <mat-toolbar>
+    <span>Current Selected Course: {{course.course.name}}</span>
+    <span class="fill-space"></span>
+
+    <mat-select>
+      <mat-option *ngFor="let tee of course.course.tee_types">{{tee.tee_type}}</mat-option>
+    </mat-select>
+  </mat-toolbar>
+
+
+</mat-card>
+
+<mat-card *ngIf="isCourseSelected == false">
+  <mat-toolbar>No Course Selected</mat-toolbar>
+  <mat-card-content>There is no course selected. Please select one on the course search page.</mat-card-content>
+  <button mat-button [routerLink]="['/search']">Course Search</button>
+</mat-card>

@@ -4,5 +4,14 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false
+  production: false,
+
+  firebase: {
+    apiKey: "AIzaSyBPSCvjNwnfnRZzc8z7hyFWMKQlnBelfRs",
+    authDomain: "golf-scorecard-d4d90.firebaseapp.com",
+    databaseURL: "https://golf-scorecard-d4d90.firebaseio.com",
+    projectId: "golf-scorecard-d4d90",
+    storageBucket: "golf-scorecard-d4d90.appspot.com",
+    messagingSenderId: "604891432705"
+  }
 };

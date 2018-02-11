@@ -28,4 +28,8 @@ export class CourseDetailsComponent implements OnInit {
     });
   }
 
+  selectCourse(){
+    this.golfCourseService.selectCourse(this.courseId);
+  }
+
 }

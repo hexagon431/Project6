@@ -21,14 +21,10 @@ export class CourseListComponent implements OnInit {
   constructor(private golfCourseService: GetCoursesService) {  }
 
   ngOnInit() {
-    // this.golfCourseService.getCourses(4, 5, 5).subscribe((golfCourses: GolfCourse[]) => {
-    //   this.courses = golfCourses;
-    //   console.log(this.courses);
-    // });
   }
 
   findCourses(){
-    this.golfCourseService.convertZip(this.zip).subscribe((mapData) => {
+    this.golfCourseService.convertZip(this.zip).subscribe((mapData:any) => {
       console.log(mapData);
       // let lat = mapData.results[0].geometry.location.lat;
       // let lng = mapData.results[0].geometry.location.lng;
@@ -37,13 +33,15 @@ export class CourseListComponent implements OnInit {
         longitude: mapData.results[0].geometry.location.lng,
         radius: this.radius
       };
+
+      this.golfCourseService.getCourses(this.coordinates.latitude, this.coordinates.longitude, this.coordinates.radius).subscribe((golfCourses: GolfCourse[]) => {
+        this.courses = golfCourses;
+        console.log(this.courses);
+      })
     });
 
 
-    this.golfCourseService.getCourses(this.coordinates.latitude, this.coordinates.longitude, this.coordinates.radius).subscribe((golfCourses: GolfCourse[]) => {
-      this.courses = golfCourses;
-      console.log(this.courses);
-    })
+
 
   }
 

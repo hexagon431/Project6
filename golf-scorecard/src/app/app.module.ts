@@ -13,6 +13,10 @@ import {GetCoursesService} from "./course/get-courses.service";
 import {RouterModule} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {MaterialModule} from "./material-module/material.module";
+import { ScoreCardComponent } from './score-card/score-card.component';
+import {AngularFirestoreModule} from "angularfire2/firestore";
+import {AngularFireModule} from "angularfire2";
+import {environment} from "../environments/environment";
 
 
 @NgModule({
@@ -20,20 +24,24 @@ import {MaterialModule} from "./material-module/material.module";
     AppComponent,
     CourseListComponent,
     WelcomeComponent,
-    CourseDetailsComponent
+    CourseDetailsComponent,
+    ScoreCardComponent
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(environment.firebase),
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
     MaterialModule,
+    AngularFirestoreModule,
     RouterModule.forRoot([
       {path: 'welcome', component: WelcomeComponent},
       {path: 'search', component: CourseListComponent},
       {path: 'details/:id', component: CourseDetailsComponent},
-      { path: '', redirectTo: 'welcome', pathMatch: 'full'},
-      { path: '**', redirectTo: 'welcome', pathMatch: 'full'}
+      {path: 'scorecard', component: ScoreCardComponent},
+      {path: '', redirectTo: 'welcome', pathMatch: 'full'},
+      {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ])
   ],
   providers: [GetCoursesService],
